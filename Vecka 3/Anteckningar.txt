@@ -1,0 +1,8 @@
+www.reactjs.org
+
+Mallar för html som ska renderas på en sida.
+
+react måste importera i varje js-fil med = import React from 'react';
+
+
+npm install shortid
