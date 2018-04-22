@@ -1,0 +1,18 @@
+/* 
+    This example declares base styles for a button and then uses the composes keyword to reuse the base styles in 
+    specific button styles.
+*/
+
+.button {
+    color: white;
+}
+
+.primary {
+    composes: button;
+    background-color: blue;
+}
+
+.error {
+    composes: button;
+    background-color: red;
+}

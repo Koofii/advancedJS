@@ -1,0 +1,92 @@
+Redux = Hjälpmedel för att hantera states.
+
+<---------------REDUCER--------------->
+
+Reducer: "Pure function that takes the state and an action, and returns a new state".
+Pure function: påverkar inte den gamla datan.
+Traditionally the reducer is coded as a switch (cases) statement with one case per action type.
+
+Vi får inte ändra på ett state i reducer.
+
+
+<---------------THE STORE--------------->
+
+"Storen" lyssnar bara på att bli uppdaterad.
+
+Consists of three things:
+    - A reducer to calculate new state
+    - An in memory data state which is updated using reducer when we pass in an action to the store.
+    - A subscription server which notifies interested parties when in-memory data is updated.
+
+"let store = Redux.createStore(reducer.initialState);"
+
+"store.dispatch(action)" använder man för att skjuta in en action i store.
+Det vill säga att efter man gjort en dispatch så har state ändrats.
+
+REPETERA CLOSURES!!
+
+Redux.createStore(reducer, initialState) => {
+    let _state= initialState;
+    return {
+        dispatch(action) {
+            _state = reducer(_state.action)
+        },
+        getState() {
+            return _state;
+        }
+    }
+}
+
+Each action should have a type and evetual further data payload props.
+Action example:
+{
+    type: 'INCREMENT',
+    by: 3
+}
+
+
+
+
+
+
+<-------EXEMPEL PÅ REDUX UTAN REACT------->
+
+const { createStore } = Redux;
+
+const reducer = (state, action) => {
+   switch (action.type) {
+     case 'ADD_PRODUCT':
+       return [...state, action.product];
+     default:
+       return state;
+   }
+};
+
+const initialStateIsProducts = [];
+
+const store = createStore(reducer, initialStateIsProducts);
+
+document.getElementById('root').innerHTML 
+  = `Count: ${store.getState().length}`;
+
+setTimeout(
+  () => {
+    store.dispatch({
+      type: 'ADD_PRODUCT',
+      product: {
+        id: 1,
+        name: 'Some product'
+      }
+    });
+    
+    document.getElementById('root').innerHTML 
+      = `Count: ${store.getState().length}`;
+  },
+  2000
+)
+
+<-------///////EXEMPEL PÅ REDUX UTAN REACT------->
+
+
+
+Uppgift: Testa köra productlist ifrån vecka 3 med react och redux. Ta struktur ifrån reactreduxcounter.

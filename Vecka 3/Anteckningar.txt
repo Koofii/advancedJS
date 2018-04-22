@@ -5,4 +5,32 @@ Mallar för html som ska renderas på en sida.
 react måste importera i varje js-fil med = import React from 'react';
 
 
-npm install shortid
+npm install shortid - för listor?
+
+Webpack: Skapar en enda javascript fil för alla javascript-filer. Kollar entrypoint och spottar ut en ny jsfil i output. (inställningar)
+
+Finns två olika komponenter.
+ - Klasskomponenter - Har ett state
+ - Funktionella komponenter - Har inte ett state
+
+<-------CLASSCOMPONTENT-------->
+
+state: there are three parts to component state:
+- setting initial state
+- reading current state
+- update state
+
+Exempel på state initialt är
+state = {
+    imageIndex: 0
+}
+
+render() {
+    return <img src={this.props.images[this.state.imageIndex]}/>
+}
+
+importera ett namngivet från en annan fil behöver jag använda måsvingar. 
+Om jag importerar default behöver jag inte det utan skriver bara import, sedan vad den ska heta och därefter "from".
+
+
+Man kan skriva import {ValidatingForm as VF} för att sedan använda VF i din kod i det dokumentet.
