@@ -1,0 +1,11 @@
+{
+  "name": "jest-example",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest --watchAll src"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.4.3"
+  }
+}

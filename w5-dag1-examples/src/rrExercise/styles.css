@@ -1,0 +1,12 @@
+.navigation {
+    margin-bottom: 25px;
+}
+ 
+a {
+    color: blue;
+    text-decoration: none;
+}
+ 
+.active {
+    color: black;
+}

@@ -1,0 +1,27 @@
+<label>Create Todo</label>
+<input 
+  #titleInput
+  (keyup.enter)="createTodo(titleInput.value)"
+/>
+
+<div class="list-group">
+  <div 
+    class="list-group-item"
+    *ngFor="let todo of todos"  
+  >
+    <span>{{ todo.title }}</span>
+    <button (click)="todo.isEditing = !todo.isEditing">Edit</button>
+    <button (click)="deleteTodo(todo)">Delete</button>
+    <div *ngIf="todo.isEditing">
+      <input
+        [(ngModel)]="todo.updatedTitle"
+      />
+      <button
+        [disabled]="todo.updatedTitle == todo.title || !todo.updatedTitle" 
+        (click)="updateTodo(todo)">
+        Update
+      </button>
+      <button (click)="cancel(todo)">Cancel</button>
+    </div>
+  </div>
+</div>

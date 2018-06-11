@@ -1,0 +1,8 @@
+li {
+    background-color: lightgrey;
+    width: 150px;
+    margin: 20px;
+    padding: 8px 4px;
+    list-style: none;
+    text-align: center;
+}

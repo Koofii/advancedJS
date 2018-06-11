@@ -1,0 +1,31 @@
+<!-- <div class="nav nav-pills">
+    <li [class.active]="currentTab === 'tab1'">
+        <a (click)="currentTab = 'tab1'">Tab 1</a>
+    </li>
+    <li [class.active]="currentTab === 'tab2'">
+            <a (click)="currentTab = 'tab2'">Tab 2</a>
+        </li>
+</div>
+
+
+<div [ngSwitch]="currentTab">
+    <div *ngSwitchCase="'tab1'">Tab 1 Content</div>
+    <div *ngSwitchCase="'tab2'">Tab 2 Content</div>
+    <div *ngSwitchDefault>No contents for unrecognized tab...</div>
+</div> -->
+
+<dynamic-tabs
+    [tabs]="[
+    {
+        name: 'tab1',
+        contents: 'Tab 1 content'
+    },
+    {
+        name: 'tab2',
+        contents: 'Tab 2 Content'
+    }
+    ]"
+    [currentTab]="'tab1'"
+>
+
+</dynamic-tabs>

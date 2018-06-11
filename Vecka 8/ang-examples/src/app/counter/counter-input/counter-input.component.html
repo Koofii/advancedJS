@@ -1,0 +1,9 @@
+<!-- (change)="changeBy($event.target.value)" -->
+
+<input
+  type="number"
+  [value]="updateBy"
+  
+  #updateByInput
+  >
+<button (click)="update(updateByInput.value)">Update</button>

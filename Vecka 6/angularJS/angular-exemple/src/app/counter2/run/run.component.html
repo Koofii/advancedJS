@@ -1,0 +1,9 @@
+<!-- <p>{{number}}</p>
+<input (keyup)="changeValue($event)">
+<button (click)="changeNumber()">Click</button> -->
+
+
+<!-- kan använda (change) istället för keyup med. -->
+
+<app-show-count [number]="value"></app-show-count>
+<app-counter (countObj)="updateCount($event)"></app-counter>

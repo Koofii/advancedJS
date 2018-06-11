@@ -1,0 +1,9 @@
+<div>
+  <li 
+    *ngFor="let tab of tabs"
+    [class.active]="tab.name === currentTab"
+  >
+  <a (click)="">{{tab.name}}</a>
+  </li>
+</div>
+

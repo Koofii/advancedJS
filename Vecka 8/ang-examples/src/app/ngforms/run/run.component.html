@@ -1,0 +1,77 @@
+<!-- 
+  Note: This markup does not do two-way binding to class properties for the form elements.
+  Meaning, there is e.g. no corresponding class property "userName" for the input field
+  "username" (the same for password and selectedaccounttype) in the component. All the
+  values in the form elements will be collected and be made available upon form submit 
+  (after successful validation); see the submit() function in the component.
+
+  If you want to do two-way binding to class properties, instead of just having ngModel set
+  by itself as done below, write [(ngModel)]="nameOfClassProperty". 
+-->
+<div class="container">
+  <form (ngSubmit)="submit(f); f.reset()" #f="ngForm">
+    
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input 
+        id="username"
+        name="username"
+        class="form-control"
+        
+        ngModel
+        #username="ngModel"
+
+        required
+        >
+    </div>
+    <div >
+      <div *ngIf="username.errors.required" class="alert alert-danger">
+        Username is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        id="password"
+        name="password"
+        class="form-control"
+        type="password"
+
+        ngModel
+        #password="ngModel"
+
+        required
+        minlength="8"
+      />
+    </div>
+    <div *ngIf="password.touched && !password.valid">
+      <div *ngIf="password.errors.required" class="alert alert-danger">
+        Password is required
+      </div>
+      <div *ngIf="password.errors.minlength" class="alert alert-danger">
+        Password must be at least {{ password.errors.minlength.requiredLength }} characters    
+      </div>
+    </div>
+
+    <div class="form-group">
+      <select
+        id="account-type"
+        class="form-control"
+        name="selectedaccounttype"
+
+        ngModel
+        #selectedAccountType="ngModel"
+      >
+        <option 
+          *ngFor="let accountType of accountTypes"
+          [value]="accountType"  
+        >
+          {{ accountType }}
+        </option>
+      </select>
+    </div>
+
+    <button [disabled]="!f.valid" type="submit">Submit</button>
+  </form>
+</div>

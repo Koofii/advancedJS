@@ -1,0 +1,16 @@
+<p>{{ title }}</p>
+<img 
+    [src]="imageUrl"
+    [class.active]="isActive"
+    (mouseenter)="isActive = true"
+    (mouseout)="isActive = false"
+    />
+<br>
+<button (click)="buttonClicked($event)">Click me!</button>
+
+<!-- När någonting ska in i ett element som t.ex P ovan så använder man måsvingar.
+Har man ett attribut som man vill plocka in så tar man squarebrackets. -->
+
+
+
+<!-- [class.active]="isActive" detta kallas för classbinding. Klassen bestämms när isActive är true -->

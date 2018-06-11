@@ -1,0 +1,31 @@
+<header>
+  <h1>Messaging Service</h1>
+  <input
+    type="text"
+    placeholder="Your message to send..."
+
+    #messageInput
+    (keyup.enter)="send(messageInput.value, messageTypeSelect.value)" 
+  >
+  <select #messageTypeSelect>
+    <!-- Render as many <option> elements as there are message types. -->
+    <option *ngFor="let messageType of messageService.getMessageTypes()">
+      {{ messageType }}
+    </option>
+  </select>
+  <button (click)="send(messageInput.value, messageTypeSelect.value)">Send Message</button>
+</header>
+
+<!-- This markup will show messages of type "Normal" -->
+<main *ngIf="messages && messages.length > 0">
+  <h2>Message History</h2>
+  <message 
+    *ngFor="let messageObject of messages" 
+    [messageData]="messageObject"
+    (onRemove)="remove($event)"
+  >
+  </message>
+</main>
+
+<!-- This component will show messages of type "Warning" -->
+<message-status></message-status>

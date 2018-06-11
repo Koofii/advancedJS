@@ -1,0 +1,9 @@
+<!-- Using a class property - 'counter' - to "bridge" the components -->
+<counter-input (counterUpdated)="counter = $event"></counter-input>
+<counter-show [currentCount]="counter"></counter-show>
+
+<!-- Using a template variable - #counterShow - to do the same thing -->
+<!-- 
+    <counter-input (counterUpdated)="counterShow.currentCount = $event"></counter-input>
+    <counter-show #counterShow [currentCount]="counter"></counter-show> 
+-->

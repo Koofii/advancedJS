@@ -1,0 +1,11 @@
+li {
+    padding: 0 4px;
+}
+
+li.active{
+    color: orangered
+}
+
+a {
+    cursor: pointer;
+}

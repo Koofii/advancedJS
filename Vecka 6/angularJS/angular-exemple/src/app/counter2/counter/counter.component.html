@@ -1,0 +1,7 @@
+<input 
+    [value]="by"
+    type="number"
+    (change)="by = $event.target.value"
+    (keyup.enter)="update()"
+    />
+<button (click)="update()">Update</button>

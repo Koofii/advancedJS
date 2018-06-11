@@ -1,0 +1,17 @@
+<div>
+  <input #title (keyup.enter)="addTitle(title.value)" />
+</div>
+
+<ul>
+  <!-- 
+    Use the 'fade' animation/trigger defined in the component and set the default animation state
+    'visible' 
+  -->
+  <li 
+    *ngFor="let title of titles"
+    (click)="removeTitle(title)"
+    [@fade]="'visible'"
+  >
+    {{ title.title }}
+  </li>
+</ul>
